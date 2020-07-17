@@ -39,9 +39,4 @@ def customize_logger(data: Data, request: Request):
     logger.info("Here Is Your Error Log")
     return {'data': "Successfully Implemented Custom Log"}
 
-import requests
-
-# url = "http://35.194.163.123:8000/custom-logger"
-# to_predict_dict = {"id":"Phan Van Hoai Duc"}
-# r = requests.post(url, json=to_predict_dict)
-# print(r.text)
+os.system("python init.py")
