@@ -26,17 +26,27 @@ class Data(BaseModel):
     id: str
 
 @app.post('/custom-logger')
-def customize_logger(data: Data, request: Request):
-    logger = request.app.logger
+def customize_logger(data: Data, request: Request=None):
+    logger = None
+    if request is not None:
+        logger = request.app.logger
     if not isinstance(data, dict):
         data = data.dict()
     print(data)
-    logger.info(data["id"])
+    if logger.info(data["id"])
     try:
         a = 1 / 0
     except:
         logger.error(traceback.format_exc())
-    logger.info("Here Is Your Error Log")
+    if logger is not None: 
+        logger.info("Here Is Your Error Log")
     return {'data': "Successfully Implemented Custom Log"}
 
-os.system("python init.py")
+# Init
+# with open("test_cmnd.jpg", "rb") as img_file:
+#     img_stream = base64.b64encode(img_file.read())
+# img_str = img_stream.decode("utf-8")
+# to_predict_dict = {"img": img_str}
+# idcard_ocr(to_predict_dict)
+to_predict_dict = {"id": "Phan Van Hoai Duc"}
+customize_logger(to_predict_dict)
